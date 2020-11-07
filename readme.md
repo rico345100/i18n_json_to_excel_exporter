@@ -6,12 +6,37 @@ This program will convert this kind of JSON source:
 
 ```json
 {
-    "topBar": {
-        "cash": "Cash: <Color=#1ed300>{0} $</Color>",
-        "gold": "Gold: <Color=#ffc000>{0} G</Color>",
-        "packages": "Packages",
-        "items": "Items"
-    }
+    "stringData": "Hello",
+    "numberData": 29,
+    "objectData": {
+        "name": "Rico",
+        "company": "Team Modernator"
+    },
+    "arrayData": [
+        "First",
+        "Second"
+    ],
+    "nested": {
+        "data": "hey hey",
+        "nested": {
+            "hello": "world",
+            "scripts": [
+                "WOW",
+                "SO SCARE",
+                "CONCERN"
+            ]
+        }
+    },
+    "objectArray": [
+        {
+            "name": "James",
+            "age": 28
+        },
+        {
+            "name": "Rico",
+            "age": 29
+        }
+    ]
 }
 ```
 
@@ -19,10 +44,21 @@ Into this(Excel):
 
 |||
 |-----------------|---|
-| topBar.cash     | Cash: <Color=#1ed300>{0} $</Color>  |
-| topBar.gold     | Gold: <Color=#ffc000>{0} G</Color>  |
-| topBar.packages | Packages                            |
-| topBar.items    | Items                               |
+| stringData | Hello |
+| numberData | 29 |
+| objectData.name | Rico |
+| objectData.company | Team Modernator |
+| arrayData.0 | First |
+| arrayData.1 | Second |
+| nested.data | hey hey |
+| nested.nested.hello | world |
+| nested.nested.scripts.0 | WOW |
+| nested.nested.scripts.1 | SO SCARE |
+| nested.nested.scripts.2 | CONCERN |
+| objectArray.0.name | James |
+| objectArray.0.age | 28 |
+| objectArray.1.name | Rico |
+| objectArray.1.age | 29 |
 
 
 ## Getting Started
@@ -45,6 +81,7 @@ $ node convert -i source.json
 ```
 -i: Specify input directory. Must be specified.
 -k: Key Connector. Default is dot(.).
+-o: Output directory. Default is 'result.xlsx'
 ```
 
 ## License

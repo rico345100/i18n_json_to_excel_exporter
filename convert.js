@@ -37,8 +37,7 @@ function print() {
 
             for (let currentInnerKey of innerKeys) {
                 const row = worksheet.getRow(rowCount);
-                // TODO: SUPPORT CUSTOMIZED KEY CONNECTOR
-                row.getCell(1).value = `${currentKey}.${currentInnerKey}`;
+                row.getCell(1).value = `${currentKey}${keyConnector}${currentInnerKey}`;
                 row.getCell(2).value = currentCategoryObject[currentInnerKey];
 
                 rowCount += 1;

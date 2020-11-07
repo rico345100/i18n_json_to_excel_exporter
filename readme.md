@@ -37,13 +37,13 @@ $ npm install
 
 3. Prepare your JSON and Run
 ```
-$ node convert -o source.json
+$ node convert -i source.json
 ```
 
 ## Available Parameters
 
 ```
--o: Specify output directory. Must be specified.
+-i: Specify input directory. Must be specified.
 -k: Key Connector. Default is dot(.).
 -u: Uglify output JSON.
 ```

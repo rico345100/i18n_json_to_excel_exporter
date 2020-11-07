@@ -12,7 +12,6 @@ function print() {
     const { i: inputDir } = argv;
     const { o: outputDir = 'result.xlsx' } = argv;
     const { k: keyConnector = '.' } = argv;
-    const { u: uglify = false } = argv;
 
     try {
         if (typeof argv.i === "undefined") {
@@ -30,17 +29,29 @@ function print() {
         let rowCount = 1;
         
         for (let currentKey of rootKeys) {
-            let currentCategoryObject = sourceData[currentKey];
-            const innerKeys = Object.keys(currentCategoryObject);
+            const currentCategoryObject = sourceData[currentKey];
 
-            // TODO: HANDLE ARRAY!
+            if (Array.isArray(currentCategoryObject)) {
+                for (let i = 0; i < currentCategoryObject.length; i++) {
+                    const row = worksheet.getRow(rowCount);
 
-            for (let currentInnerKey of innerKeys) {
-                const row = worksheet.getRow(rowCount);
-                row.getCell(1).value = `${currentKey}${keyConnector}${currentInnerKey}`;
-                row.getCell(2).value = currentCategoryObject[currentInnerKey];
+                    row.getCell(1).value = `${currentKey}${keyConnector}${i + 1}`;
+                    row.getCell(2).value = currentCategoryObject[i];
 
-                rowCount += 1;
+                    rowCount += 1;
+                }
+            }
+            else {
+                const innerKeys = Object.keys(currentCategoryObject);
+
+                for (let currentInnerKey of innerKeys) {
+                    const row = worksheet.getRow(rowCount);
+
+                    row.getCell(1).value = `${currentKey}${keyConnector}${currentInnerKey}`;
+                    row.getCell(2).value = currentCategoryObject[currentInnerKey];
+
+                    rowCount += 1;
+                }
             }
         }
 

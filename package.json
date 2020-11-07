@@ -1,0 +1,15 @@
+{
+  "name": "i18n_json_extractor",
+  "version": "1.0.0",
+  "description": "Simple JS program that extracts I18N related data and exports as JSON, for Stick Warfare: Blood Strike.",
+  "main": "convert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rico345100/i18n_json_extractor"
+  },
+  "author": "modernator",
+  "license": "MIT"
+}

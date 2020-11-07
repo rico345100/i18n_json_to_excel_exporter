@@ -1,0 +1,30 @@
+{
+    "topBar": {
+        "cash": "Cash: <Color=#1ed300>{0} $</Color>",
+        "gold": "Gold: <Color=#ffc000>{0} G</Color>",
+        "packages": "Packages",
+        "items": "Items"
+    },
+    "mainView": {
+        "play": "Play",
+        "skills": "Skills",
+        "equipments": "Equipments",
+        "quit": "Quit",
+        "pressBackAgainToExit": "Press Back again to Exit Game.",
+        "options": "Options",
+        "rewardBoost": "Reward Boost +{0}%",
+        "rewardBoostInfo": "Each time you played the game, it will give you +{0} of extra cash and EXP boost, max additional {1}%. This Boost will reset after you exit the game.",
+        "share": "Share",
+        "thanksForReview": "Thanks for Review!",
+        "takeReviewReward": "Take Reward(${0})",
+        "review": "Review",
+        "askReview": "Seems like you enjoying Stick Warfare! If you like it, please rate us in Google Play Store!",
+        "reviewOk": "OK, Take me to the store.",
+        "reviewNo": "Not interested.",
+        "dailyMissions": "Daily Missions",
+        "rewardCode": "Reward\nCode",
+        "tutorialCompleted": "Tutorial Completed!",
+        "tutorialRewardTake": "Take ${0}",
+        "changeColor": "Change Color"
+    }
+}

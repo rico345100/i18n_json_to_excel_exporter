@@ -11,5 +11,9 @@
     "url": "https://github.com/rico345100/i18n_json_extractor"
   },
   "author": "modernator",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "exceljs": "^4.2.0",
+    "minimist": "^1.2.5"
+  }
 }

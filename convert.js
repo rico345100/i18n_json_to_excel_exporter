@@ -27,36 +27,72 @@ function print() {
 
         const rootKeys = Object.keys(sourceData);
         let rowCount = 1;
-        
-        for (let currentKey of rootKeys) {
-            const currentCategoryObject = sourceData[currentKey];
 
-            if (Array.isArray(currentCategoryObject)) {
-                for (let i = 0; i < currentCategoryObject.length; i++) {
-                    const row = worksheet.getRow(rowCount);
+        function parseAndWrite(parentKey, targetObject) {
+            const keys = Object.keys(targetObject);
 
-                    row.getCell(1).value = `${currentKey}${keyConnector}${i + 1}`;
-                    row.getCell(2).value = currentCategoryObject[i];
+            for (let key of keys) {
+                const element = targetObject[key];
 
-                    rowCount += 1;
+                if (typeof element === 'object' && element !== null) {
+                    let writeKey;
+
+                    if (parentKey !== null) {
+                        writeKey = addKeyConnectors(parentKey, key);
+                    }
+                    else {
+                        writeKey = key;
+                    }
+
+                    parseAndWrite(writeKey, element);
                 }
-            }
-            else {
-                const innerKeys = Object.keys(currentCategoryObject);
+                else if (Array.isArray(element)) {
+                    for (let i = 0; i < element.length; i++) {
+                        let writeKey;
 
-                for (let currentInnerKey of innerKeys) {
-                    const row = worksheet.getRow(rowCount);
+                        if (parentKey !== null) {
+                            writeKey = addKeyConnectors(parentKey, key, i);
+                        }
+                        else {
+                            writeKey = key;
+                        }
 
-                    row.getCell(1).value = `${currentKey}${keyConnector}${currentInnerKey}`;
-                    row.getCell(2).value = currentCategoryObject[currentInnerKey];
+                        write(writeKey, element[i]);
+                    }
+                }
+                else {
+                    let writeKey;
 
-                    rowCount += 1;
+                    if (parentKey !== null) {
+                        writeKey = addKeyConnectors(parentKey, key);
+                    }
+                    else {
+                        writeKey = key;
+                    }
+
+                    write(writeKey, element);
                 }
             }
         }
 
+        function write(key, value) {
+            const row = worksheet.getRow(rowCount);
+
+            row.getCell(1).value = key;
+            row.getCell(2).value = value.toString(); // There's a glitch that number displays nothing
+
+            rowCount += 1;
+        }
+
+        function addKeyConnectors() {
+            // arguments is not an Array, it's Array-Like. So convert it to the array.
+            return [].slice.call(arguments).join(keyConnector);
+        }
+
+        parseAndWrite(null, sourceData);
+
         worksheet.getColumn(1).width = 50;
-        worksheet.getColumn(2).width = 300;
+        worksheet.getColumn(2).width = 200;
 
         await workbook.xlsx.writeFile(outputDir);
 

@@ -1,5 +1,5 @@
-# I18N JSON Extractor
-Simple JS program that extracts I18N related data and exports as JSON, for Stick Warfare: Blood Strike, but you can use for your own purpose.
+# I18N JSON to Excel Exporter
+Simple JS program that extracts I18N related data from JSON and exports as Excel, for Stick Warfare: Blood Strike, but you can use for your own purpose.
 
 ## What is this?
 This program will convert this kind of JSON source:
@@ -15,7 +15,7 @@ This program will convert this kind of JSON source:
 }
 ```
 
-Into this:
+Into this(Excel):
 
 |||
 |-----------------|---|
@@ -26,7 +26,7 @@ Into this:
 
 
 ## Getting Started
-Program wrote by Node.js 6.9.5. If you have any problem with different version, please set your Node version to 6.9.5. NVM is a great tool without override your current Node.js.
+Program wrote by Node.js 13.0.0. If you have any problem with different version, please set your Node version to 13.0.0. NVM is a great tool without override your current Node.js.
 
 1. Get Node.js
 
@@ -44,7 +44,7 @@ $ node convert -o source.json
 
 ```
 -o: Specify output directory. Must be specified.
--kc: Key Connector. Default is dot(.).
+-k: Key Connector. Default is dot(.).
 -u: Uglify output JSON.
 ```
 

@@ -26,7 +26,7 @@ Into this(Excel):
 
 
 ## Getting Started
-Program wrote by Node.js 13.0.0. If you have any problem with different version, please set your Node version to 13.0.0. NVM is a great tool without override your current Node.js.
+Program wrote by Node.js 14.12.0. If you have any problem with different version, please update your Node version atleast to 14.0.0. NVM is a great tool without override your current Node.js.
 
 1. Get Node.js
 
@@ -45,7 +45,6 @@ $ node convert -i source.json
 ```
 -i: Specify input directory. Must be specified.
 -k: Key Connector. Default is dot(.).
--u: Uglify output JSON.
 ```
 
 ## License
